@@ -7,14 +7,25 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+let fieldInfoList = [
+  {key: 'name', label: '部门名称', type: 'input', required: true, placeholder: '请输入部门名称'},
+  {key: 'level', label: '部门级别', type: 'input', required: true, placeholder: '请输入部门级别'},
+  {key: 'parentId', label: '上级部门编号', type: 'input', required: true, placeholder: '请输入上级部门编号'},
+  {key: 'sortWeight', label: '排序', type: 'input', required: true, placeholder: '请输入排序'},
+  {key: 'leaderId', label: '部门领导Id', type: 'input', required: true, placeholder: '请输入部门领导Id'},
+  {key: 'leaderName', label: '部门领导姓名', type: 'input', required: true, placeholder: '请输入部门领导姓名'},
+];
+import DialogJs from '../lib-js/dialog'
 export default {
   name: 'home',
+  mixin:[DialogJs({
+    fieldList:fieldInfoList
+  })],
   mounted(){
 
   },
   data(){
+
     return{
       loading: false,
       temp:'init'
